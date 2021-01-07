@@ -32,8 +32,11 @@ function eachLine(src, addMap, rewrite) {
 	}
 
 	// word to map
-	list.forEach(v => {
-		if (addMap) addMap(map, v);
+	list.forEach((v, i) => {
+		if (addMap) {
+			v = addMap(map, v);
+			if (v) { list[i] = v; }
+		}
 	});
 
 	if (list.length > 0) {
@@ -54,8 +57,8 @@ let pmap = Object.fromEntries(
 );
 // output map.js
 write(banjs,
-	`export const pctt = ${stringify(pmap)};` +
-	`export const map = ${stringify(map)};`
+	`export const pctt = ${stringify(pmap)};\n` +
+	`export const ban = ${stringify(map)};`
 );
 map = null;
 pmap = null;
@@ -72,20 +75,21 @@ function addBan(map, word) {
 	// bad|bad1|bad2|bad3:replace
 	// bad^|bad1
 
-	let [ban, green] = word.split(":");
-	ban.split("|").forEach(str => {
+	let [ban, green = null] = word.split(":");
+	ban = ban.split("|").sort();
+	ban.forEach((str) => {
 		let site = map;
 		for (let i = 0; i < str.length; i++) {
 			let char = str[i];
 			site[char] = site[char] || {};
 			site = site[char];
 		}
-		if (green) {
-			site._g = green;
+		if (green !== null) {
+			site._g = green || "";
 		}
 		site._e = 1;
 	});
-
+	return ban.join("|") + (green !== null ? (":" + green) : "");
 }
 
 function addAllow(map, word) {
@@ -94,8 +98,10 @@ function addAllow(map, word) {
 
 	let [err, allow] = word.split(":");
 	map[err] = map[err] || { a: {}, b: {} };
-	allow.split("|").forEach(str => {
-		let [before, after] = str.split(err);
+	allow = allow.split("|").sort();
+	allow.forEach((str, i) => {
+		let [before = "", after = ""] = str.split(err);
+		// console.log("before, after", str, err, before, after)
 		let site = map[err].a;
 		for (let i = 0; i < after.length; i++) {
 			let char = after[i];
@@ -116,5 +122,5 @@ function addAllow(map, word) {
 			site._e = 1;
 		}
 	});
-
+	return err + ":" + allow.join("|");
 }

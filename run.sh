@@ -2,7 +2,7 @@
 
 # qjs build.js
 # qjs example.js
-str="_____________________\nsetmap:生成词库\t example:运行样例\t "
+str="_____________________\nsetmap:生成词库\t example:运行样例\t test:测试fs\t "
 arr=("setmap.js" "example.js" "test.js");
 i=1;
 len=$[1+${#arr[*]}];
@@ -23,7 +23,9 @@ do
     read active
     if [ $active -lt  $len ]; then
         # echo -e "run ${arr[$active-1]}\n"
-				qjs "${arr[$active-1]}"
+        clear
+        echo -e "run ${arr[$active-1]}:\n"
+        qjs "${arr[$active-1]}"
         echo -e "run end\n\n"
     fi
 done
