@@ -69,7 +69,7 @@ let result = filter(text);
 
 会对 `ban.txt`,`allow.txt` 内容重新排序,
 
-不要在煤保存的情况下运行`setmap.js`
+不要在没保存的情况下运行`setmap.js`
 
 ./word/ban.txt:
 ```
