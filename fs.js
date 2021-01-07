@@ -1,4 +1,6 @@
+// file read and write
 import * as std from 'std';
+
 export function write(src, text) {
 	var file = std.open(src, 'w');
 	file.puts(text);
@@ -7,4 +9,5 @@ export function write(src, text) {
 
 export function read(src) {
 	return std.loadFile(src);
+	// if error return null
 }

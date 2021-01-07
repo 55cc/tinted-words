@@ -141,6 +141,11 @@ export var map = {
       "isEnd": true
     }
   },
+  "法": {
+    "克": {
+      "isEnd": true
+    }
+  },
   "沙": {
     "雕": {
       "isEnd": true
@@ -213,6 +218,9 @@ export var map = {
           "isEnd": true
         }
       }
+    },
+    ",": {
+      "isEnd": true
     }
   },
   "我": {
@@ -248,6 +256,11 @@ export var map = {
           "isEnd": true
         }
       }
+    }
+  },
+  "口": {
+    "交": {
+      "isEnd": true
     }
   },
   "卧": {
@@ -295,6 +308,9 @@ export var map = {
       }
     },
     "妈": {
+      "的": {
+        "isEnd": true
+      },
       "isEnd": true
     },
     "么": {
