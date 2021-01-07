@@ -52,6 +52,13 @@ run example.js:
 run end
 ```
 
+### 使用
+
+```
+import { filter } from "./filter.js";
+let result = filter(text);
+```
+
 ### 词库txt说明
 
 词库txt文件有变更时,需要手动运行`setmap.js`
