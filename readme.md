@@ -58,6 +58,16 @@ run end
 import { filter } from "./filter.js";
 let result = filter(text);
 ```
+直接在html中使用:
+
+```
+<script type="module">
+import { filter } from "https://cdn.jsdelivr.net/gh/0x018/tinted-words/filter.js";
+var text = document.body.innerHTML||"";
+text=filter(text)
+document.body.innerHTML=text;
+</script>
+```
 
 ### 词库txt说明
 
