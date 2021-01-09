@@ -68,6 +68,11 @@ text=filter(text)
 document.body.innerHTML=text;
 </script>
 ```
+或者:
+
+```
+<script src="https://cdn.jsdelivr.net/gh/0x018/tinted-words/index.js"></script>
+```
 
 ### 词库txt说明
 
