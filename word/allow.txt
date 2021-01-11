@@ -4,3 +4,4 @@
 你大爷:找你大爷
 他妈的:了他妈的|他妈妈|孩子他妈
 他妈:了他妈的|他妈妈|孩子他妈
+nc:func|inc|nce|nclude|nction|sync|tanc
