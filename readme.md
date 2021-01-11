@@ -63,9 +63,10 @@ let result = filter(text);
 ```
 <script type="module">
 import { filter } from "https://cdn.jsdelivr.net/gh/0x018/tinted-words/filter.js";
-var text = document.body.innerHTML||"";
-text=filter(text)
-document.body.innerHTML=text;
+Array.from(document.querySelectorAll("*"))
+  .flatMap(e => Array.from(e.childNodes).filter(n => n.nodeType == 3)).forEach(e => {
+    e.data = filter(e.data);
+  });
 </script>
 ```
 或者:
