@@ -1,6 +1,6 @@
 var t = `
 import { filter } from "https://cdn.jsdelivr.net/gh/0x018/tinted-words/filter.js";
-Array.from(document.querySelectorAll("*"))
+Array.from(document.querySelectorAll(":not(style)"))
   .flatMap(e => Array.from(e.childNodes).filter(n => n.nodeType == 3)).forEach(e => {
     e.data = filter(e.data);
   });
